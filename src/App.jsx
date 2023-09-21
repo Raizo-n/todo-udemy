@@ -24,7 +24,7 @@ export const App = () => {
       </div>
 
       <div className="complete-area">
-        <p className="title">Undone TODO</p>
+        <p className="title">Done TODO</p>
         <ul className="flex">
           <li>Epic</li>
           <button>Cancel</button>
