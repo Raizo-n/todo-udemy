@@ -1,7 +1,14 @@
 // import React from "react";
+import { useState } from "react";
 import "./App.css";
 
 export const App = () => {
+  const [incompleteTodo, setIncompleteTodo] = useState([
+    "cleaning my room",
+    "doing the laundry",
+  ]);
+  const [completeTodo, setCompleteTodo] = useState(["Making lunch"]);
+
   return (
     <>
       <div className="input-area">
@@ -11,23 +18,30 @@ export const App = () => {
 
       <div className="incomplete-area">
         <p className="title">Undone TODO</p>
-        <ul className="flex">
-          <li>Yooo</li>
-          <button>Done</button>
-          <button>Delete</button>
-        </ul>
-        <ul className="flex">
-          <li>Sup</li>
-          <button>Done</button>
-          <button>Delete</button>
+        <ul>
+          {incompleteTodo.map((todo) => {
+            return (
+              <div key={todo} className="flex">
+                <li>{todo}</li>
+                <button>Done</button>
+                <button>Delete</button>
+              </div>
+            );
+          })}
         </ul>
       </div>
 
       <div className="complete-area">
         <p className="title">Done TODO</p>
-        <ul className="flex">
-          <li>Epic</li>
-          <button>Cancel</button>
+        <ul>
+          {completeTodo.map((todo) => {
+            return (
+              <div key={todo} className="flex">
+                <li>{todo}</li>
+                <button>Cancel</button>
+              </div>
+            );
+          })}
         </ul>
       </div>
     </>
